@@ -25,7 +25,6 @@ header {
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding-top: 2rem;
   }
 
@@ -55,8 +54,28 @@ header {
   z-index: 1;
   background-color: black;
   width: 100%;
-  padding: 10rem 1rem;
-  
+  padding: 10rem;
+  padding-inline: 0;
+
+  max-width: 0;
+  overflow: hidden;
+
+  transition: max-width 450ms ease-in-out;
+
+  &.enter-active {
+    max-width: 100%;
+  }
+
+  &.enter-done {
+    max-width: 100%;
+  }
+
+  a {
+    font-family: map-get(var.$font_family, "josefin");
+    font-weight: map-get(var.$font_weight, 300);
+    text-transform: uppercase;
+    font-size: 24px;
+  }
 }
 
 a {

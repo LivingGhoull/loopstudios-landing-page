@@ -1,3 +1,5 @@
+import { CSSTransition } from "react-transition-group";
+
 import { useState } from "react";
 import CreationCard from "./components/CreationCard";
 import Navigation from "./components/Navigation";
@@ -15,36 +17,46 @@ function App() {
   return (
     <>
       <header>
-        {isDropdownOpen && (
-          <div className="dropdown">
-            <nav>
-              <ul className="navigation-list-drop">
-                <li>
-                  <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">Careers</a>
-                </li>
-                <li>
-                  <a href="#">Events</a>
-                </li>
-                <li>
-                  <a href="#">Products</a>
-                </li>
-                <li>
-                  <a href="#">Support</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        )}
+        <CSSTransition
+          in={isDropdownOpen}
+          className="dropdown"
+          timeout={450}
+          unmountOnExit
+        >
+          <nav>
+            <ul className="container navigation-list-drop">
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Careers</a>
+              </li>
+              <li>
+                <a href="#">Events</a>
+              </li>
+              <li>
+                <a href="#">Products</a>
+              </li>
+              <li>
+                <a href="#">Support</a>
+              </li>
+            </ul>
+          </nav>
+        </CSSTransition>
 
         <div className="container">
           <div className="hero-container">
             <img src="src\assets\images\logo.svg" alt="" />
 
-            <button onClick={handleToggleDropdown}>
-              <img src="src\assets\images\icon-hamburger.svg" alt="" />
+            <button type="button" onClick={handleToggleDropdown}>
+              <img
+                src={
+                  !isDropdownOpen
+                    ? "src/assets/images/icon-hamburger.svg"
+                    : "src/assets/images/icon-close.svg"
+                }
+                alt=""
+              />
             </button>
           </div>
 
@@ -84,7 +96,9 @@ function App() {
               />
             ))}
           </div>
-          <button className="see-all-btn">SEE ALL</button>
+          <button type="button" className="see-all-btn">
+            SEE ALL
+          </button>
         </section>
       </main>
 
