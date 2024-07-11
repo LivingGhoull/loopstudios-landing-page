@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+$colors: (
+  primaryWhite: hsl(0, 0%, 100%),
+  primaryblack: hsl(0, 0%, 0%),
+  
+  primarydarkGray: hsl(0, 0%, 55%),
+  secondaryVeryDarkGray: hsl(0, 0%, 41%),
+);
+
+$font_family: (
+  alta: "Alata",
+  josefin: "Josefin Sans",
+);
+
+$font_weight: (
+  400: 400,
+  300: 300,
+);
+
+$font_size: 0.9375rem;
+
+$spacing: (
+  "8px": 0.5rem,
+  "16px": 1rem,
+  "32px": 2rem,
+);
