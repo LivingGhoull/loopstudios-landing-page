@@ -7,9 +7,9 @@ interface Props {
 
 function CreationCard(prop: Props) {
   return (
-    <div className="our-creation__card">
+    <div className="our-creation__list__card">
       <img src={prop.src} alt={prop.alt} />
-      <div className="our-creation__card__header">
+      <div className="our-creation__list__card__header">
         <h3>{prop.title1}</h3>
         <h3>{prop.title2}</h3>
       </div>

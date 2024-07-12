@@ -4,49 +4,49 @@
       "title1": "DEEP",
       "title2": "EARTH",
       "src": "src/assets/images/mobile/image-deep-earth.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "Earth seen from space"
     },
     {
       "title1": "NIGHT",
       "title2": "ARCADE",
       "src": "src/assets/images/mobile/image-night-arcade.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "Arcade machines in a row  "
     },
     {
       "title1": "SOCCER",
       "title2": "TEAM VR",
       "src": "src/assets/images/mobile/image-soccer-team.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "People playing football"
     },
     {
       "title1": "THE",
       "title2": "GRID",
       "src": "src/assets/images/mobile/image-grid.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "A cars wheels"
     },
     {
       "title1": "FROM UP",
       "title2": "ABOVE VR",
       "src": "src/assets/images/mobile/image-from-above.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "Road seen from above"
     },
     {
       "title1": "POCKET",
       "title2": "BOREALIS",
       "src": "src/assets/images/mobile/image-pocket-borealis.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "Nordic light in greenland"
     },
     {
       "title1": "THE",
       "title2": "CURIOSITY",
       "src": "src/assets/images/mobile/image-curiosity.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "Space robot on mars"
     },
     {
       "title1": "MAKE IT",
       "title2": "FISHEYE",
       "src": "src/assets/images/mobile/image-fisheye.jpg",
-      "alt": "DEEP EARTH"
+      "alt": "Sky shown with fish eye"
     }
   ]
 }

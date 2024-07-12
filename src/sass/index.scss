@@ -1,81 +1,22 @@
 @use "./variable" as var;
 
+//Elements
 body {
   font-family: map-get(var.$font_family, "alta");
   font-size: var.$font_size;
   color: map-get(var.$colors, "primarydarkGray");
 }
 
+main {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: map-get(var.$spacing, "32px");
+}
+
 button {
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  display: flex;
-  align-items: center;
-}
-
-//Header
-header {
-  background-image: url("../assets/images/mobile/image-hero.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-
-  .hero-container {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem;
-  }
-
-  .hero-header {
-    padding: 10rem 0;
-
-    h1 {
-      color: map-get(var.$colors, "primaryWhite");
-      font-family: map-get(var.$font_family, "josefin");
-      font-weight: map-get(var.$font_weight, 300);
-      font-size: clamp(36px, 5vw, 88px);
-
-      line-height: 1;
-      text-transform: uppercase;
-      border: 2px solid white;
-      padding: 2rem 1rem;
-    }
-  }
-
-  @media (min-width: 960px) {
-    background-image: url("../assets/images/desktop/image-hero.jpg");
-  }
-}
-
-.dropdown {
-  position: absolute;
-  z-index: 1;
-  background-color: black;
-  width: 100%;
-  padding: 10rem;
-  padding-inline: 0;
-
-  max-width: 0;
-  overflow: hidden;
-
-  transition: max-width 450ms ease-in-out;
-
-  &.enter-active {
-    max-width: 100%;
-  }
-
-  &.enter-done {
-    max-width: 100%;
-  }
-
-  a {
-    font-family: map-get(var.$font_family, "josefin");
-    font-weight: map-get(var.$font_weight, 300);
-    text-transform: uppercase;
-    font-size: 24px;
-  }
 }
 
 a {
@@ -90,24 +31,105 @@ a {
     border-color: map-get(var.$colors, "white");
   }
 }
-
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
-main {
-  padding: 5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+.desktop {
+  display: none;
+  @media (min-width: 992px) {
+    display: block;
+  }
 }
 
-section {
+.mobile {
+  display: block;
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+
+
+//Header
+.header {
+  background-image: url("../assets/images/mobile/image-hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
+  &__dropdown {
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    width: 100%;
+    padding: 10rem;
+    padding-inline: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 450ms ease-in-out;
+
+    &.enter-active,
+    &.enter-done {
+      max-width: 100%;
+    }
+
+    a {
+      font-family: map-get(var.$font_family, "josefin");
+      font-weight: map-get(var.$font_weight, 300);
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+
+    &__nav {
+      display: flex;
+      flex-direction: column;
+      gap: map-get(var.$spacing, "16px");
+    }
+  }
+
+  &__hero-container {
+    &__top {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 2rem;
+      
+      &__nav {
+        display: flex;
+        gap: map-get(var.$spacing, "32px");
+      }
+    }
+
+    &__hero-header {
+      padding: 10rem 0;
+      h1 {
+        color: map-get(var.$colors, "primaryWhite");
+        font-family: map-get(var.$font_family, "josefin");
+        font-weight: map-get(var.$font_weight, 300);
+        font-size: clamp(36px, 5vw, 88px);
+
+        line-height: 1;
+        text-transform: uppercase;
+        border: 2px solid white;
+        padding: 2rem 1rem;
+      }
+    }
+  }
+
+  @media (min-width: 960px) {
+    background-image: url("../assets/images/desktop/image-hero.jpg");
+  }
+}
+
+//Main content
+.section {
   text-align: center;
-
-  .section-header {
-    padding: 3rem 0;
+  &__heading {
+    padding-top: 2rem;
     color: map-get(var.$colors, "primaryblack");
     font-family: map-get(var.$font_family, "josefin");
     font-weight: 300;
@@ -117,15 +139,11 @@ section {
   }
 }
 
-.see-all-btn {
-  border: 2px solid map-get(var.$colors, "secondaryVeryDarkGray");
-  background-color: map-get(var.$colors, "primaryWhite");
-
-  font-size: var.$font_size;
-  padding: 0.5rem 2rem;
-  letter-spacing: 4px;
-  margin-top: 2rem;
-  margin-inline: auto;
+//Sections
+.leader-vr {
+  display: flex;
+  flex-direction: column;
+  gap: map-get(var.$spacing, "32px");
 }
 
 .our-creation {
@@ -133,56 +151,79 @@ section {
   flex-direction: column;
   gap: map-get(var.$spacing, "32px");
 
-  &__card {
-    position: relative;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: map-get(var.$spacing, "32px");
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        270deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 1) 150%
-      );
-    }
+    &__card {
+      position: relative;
 
-    &__header {
-      position: absolute;
-      bottom: 0;
-      padding: 1rem;
-      color: map-get(var.$colors, "primaryWhite");
-      z-index: 1;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          270deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(0, 0, 0, 1) 150%
+        );
+      }
 
-      h3 {
-        margin: 0;
-        text-transform: uppercase;
-        text-align: start;
-        font-family: map-get(var.$font_family, "josefin");
-        font-weight: 300;
+      &__header {
+        position: absolute;
+        bottom: 0;
+        padding: 1rem;
+        color: map-get(var.$colors, "primaryWhite");
+        z-index: 1;
+
+        h3 {
+          margin: 0;
+          text-transform: uppercase;
+          text-align: start;
+          font-family: map-get(var.$font_family, "josefin");
+          font-weight: 300;
+        }
+      }
+
+      img {
+        width: 100%;
       }
     }
+  }
+  &__see-all-btn {
+    border: 2px solid map-get(var.$colors, "secondaryVeryDarkGray");
+    background-color: map-get(var.$colors, "primaryWhite");
+    text-transform: uppercase;
 
-    img {
-      width: 100%;
-    }
+    font-size: var.$font_size;
+    padding: 0.5rem 2rem;
+    letter-spacing: 4px;
+    margin-inline: auto;
   }
 }
 
 //Footer
-footer {
+.footer {
   background-color: map-get(var.$colors, "primaryblack");
 
-  .footer-container {
+  &__container {
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     gap: map-get(var.$spacing, "16px");
+
+    &__nav {
+      display: flex;
+      flex-direction: column;
+      gap: map-get(var.$spacing, "16px");
+    }
+
 
     &__socials {
       display: flex;
@@ -191,20 +232,4 @@ footer {
       gap: map-get(var.$spacing, "16px");
     }
   }
-}
-
-.navigation-list {
-  display: flex;
-  flex-direction: row;
-  gap: map-get(var.$spacing, "32px");
-}
-
-.navigation-list-drop {
-  display: flex;
-  flex-direction: column;
-  gap: map-get(var.$spacing, "16px");
-}
-
-.interactive-img {
-  width: 100%;
 }
