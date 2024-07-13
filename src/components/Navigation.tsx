@@ -1,19 +1,37 @@
-
 function Navigation() {
   return (
     <>
       <nav className="desktop">
-        <ul className="navigation-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Support</a></li>
+        <ul className="navigation">
+          <li>
+            <a className="links" href="#">
+              About
+            </a>
+          </li>
+          <li>
+            <a className="links" href="#">
+              Careers
+            </a>
+          </li>
+          <li>
+            <a className="links" href="#">
+              Events
+            </a>
+          </li>
+          <li>
+            <a className="links" href="#">
+              Products
+            </a>
+          </li>
+          <li>
+            <a className="links" href="#">
+              Support
+            </a>
+          </li>
         </ul>
       </nav>
-    
     </>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

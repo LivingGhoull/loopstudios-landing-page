@@ -1,17 +1,19 @@
-@use "./variable" as var;
+@use "./collection" as col;
 
-//Elements
 body {
-  font-family: map-get(var.$font_family, "alta");
-  font-size: var.$font_size;
-  color: map-get(var.$colors, "primarydarkGray");
+  font-family: map-get(col.$font_family, "alta");
+  font-size: col.$font_size;
+  color: map-get(col.$colors, "primarydarkGray");
 }
 
 main {
   padding: 5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: map-get(var.$spacing, "32px");
+  @include col.flex-layout(column, map-get(col.$spacing, "48px"));
+
+  @media (min-width: 992px) {
+    padding: 5rem 0;
+    gap: 10rem;
+  }
 }
 
 button {
@@ -19,24 +21,27 @@ button {
   border: none;
 }
 
-a {
-  text-decoration: none;
-  color: map-get(var.$colors, "primaryWhite");
-  border-bottom: 2px solid;
-  border-color: rgba(255, 255, 255, 0);
-  padding-bottom: 8px;
-  transition: border-color 350ms ease-in-out;
-
-  &:hover {
-    border-color: map-get(var.$colors, "white");
-  }
-}
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
+.links {
+  text-decoration: none;
+  color: map-get(col.$colors, "primaryWhite");
+  border-bottom: 2px solid;
+  border-color: rgba(255, 255, 255, 0);
+
+  @include col.transition(border-color);
+  padding-bottom: 8px;
+
+  &:hover {
+    border-color: map-get(col.$colors, "primaryWhite");
+  }
+}
+
+//Show responsive elements
 .desktop {
   display: none;
   @media (min-width: 992px) {
@@ -51,7 +56,10 @@ ul {
   }
 }
 
-
+//component Navigation.tsx
+.navigation {
+  @include col.flex-layout(row, map-get(col.$spacing, "32px"));
+}
 
 //Header
 .header {
@@ -69,7 +77,8 @@ ul {
     padding-inline: 0;
     max-width: 0;
     overflow: hidden;
-    transition: max-width 450ms ease-in-out;
+
+    @include col.transition(max-width);
 
     &.enter-active,
     &.enter-done {
@@ -77,50 +86,49 @@ ul {
     }
 
     a {
-      font-family: map-get(var.$font_family, "josefin");
-      font-weight: map-get(var.$font_weight, 300);
-      text-transform: uppercase;
-      font-size: 24px;
-    }
-
-    &__nav {
-      display: flex;
-      flex-direction: column;
-      gap: map-get(var.$spacing, "16px");
+      @include col.font-styling(
+        map-get(col.$font_family, "josefin"),
+        map-get(col.$font_weight, 300),
+        1.5rem,
+        uppercase,
+        1.5
+      );
     }
   }
 
+  &__list {
+    @include col.flex-layout(column, map-get(col.$spacing, "16px"));
+  }
+
   &__hero-container {
-    &__top {
+    &__nav {
       position: relative;
       z-index: 2;
-      display: flex;
+      @include col.flex-layout();
       justify-content: space-between;
       padding-top: 2rem;
-      
-      &__nav {
-        display: flex;
-        gap: map-get(var.$spacing, "32px");
-      }
     }
 
     &__hero-header {
       padding: 10rem 0;
       h1 {
-        color: map-get(var.$colors, "primaryWhite");
-        font-family: map-get(var.$font_family, "josefin");
-        font-weight: map-get(var.$font_weight, 300);
-        font-size: clamp(36px, 5vw, 88px);
+        color: map-get(col.$colors, "primaryWhite");
 
-        line-height: 1;
-        text-transform: uppercase;
+        @include col.font-styling(
+          map-get(col.$font_family, "josefin"),
+          map-get(col.$font_weight, 300),
+          clamp(32px, 5vw, 80px),
+          uppercase,
+          1
+        );
+
         border: 2px solid white;
         padding: 2rem 1rem;
       }
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: 992px) {
     background-image: url("../assets/images/desktop/image-hero.jpg");
   }
 }
@@ -128,33 +136,57 @@ ul {
 //Main content
 .section {
   text-align: center;
+  padding: 2rem auto;
   &__heading {
-    padding-top: 2rem;
-    color: map-get(var.$colors, "primaryblack");
-    font-family: map-get(var.$font_family, "josefin");
-    font-weight: 300;
-    text-transform: uppercase;
-    line-height: 1;
-    font-size: map-get(var.$spacing, "32px");
+    color: map-get(col.$colors, "primaryblack");
+
+    @include col.font-styling(
+      map-get(col.$font_family, "josefin"),
+      map-get(col.$font_weight, 300),
+      map-get(col.$spacing, "32px"),
+      uppercase,
+      1
+    );
+  }
+  @media (min-width: 992px) {
+    text-align: start;
   }
 }
 
 //Sections
 .leader-vr {
-  display: flex;
-  flex-direction: column;
-  gap: map-get(var.$spacing, "32px");
+  @include col.flex-layout(column, map-get(col.$spacing, "32px"));
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    position: relative;
+
+    &__info {
+      background-color: map-get(col.$colors, "primaryWhite");
+      padding-inline: 4rem;
+      padding-top: 2rem;
+      position: absolute;
+      bottom: 0;
+    }
+  }
 }
 
 .our-creation {
-  display: flex;
-  flex-direction: column;
-  gap: map-get(var.$spacing, "32px");
+  @include col.flex-layout(column, map-get(col.$spacing, "32px"));
+
+  &__heading {
+    @include col.flex-layout();
+    justify-content: center;
+    align-items: end;
+    margin: 0;
+
+    @media (min-width: 992px) {
+      justify-content: space-between;
+    }
+  }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: map-get(var.$spacing, "32px");
+    @include col.flex-layout(column, map-get(col.$spacing, "32px"));
 
     &__card {
       position: relative;
@@ -177,15 +209,19 @@ ul {
         position: absolute;
         bottom: 0;
         padding: 1rem;
-        color: map-get(var.$colors, "primaryWhite");
+        color: map-get(col.$colors, "primaryWhite");
         z-index: 1;
 
         h3 {
           margin: 0;
-          text-transform: uppercase;
           text-align: start;
-          font-family: map-get(var.$font_family, "josefin");
-          font-weight: 300;
+
+          @include col.font-styling(
+            map-get(col.$font_family, "josefin"),
+            map-get(col.$font_weight, 300),
+            1.5rem,
+            uppercase
+          );
         }
       }
 
@@ -193,43 +229,90 @@ ul {
         width: 100%;
       }
     }
+
+    @media (min-width: 992px) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      &__card {
+        padding: 0;
+        &::after {
+          transition: background 350ms ease-in-out, color 350ms ease-in-out;
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(0, 0, 0, 1) 150%
+          );
+        }
+        &:hover {
+          &::after {
+            background: none;
+            background-color: rgba(255, 255, 255, 0.75);
+          }
+          h3 {
+            color: map-get(col.$colors, "primaryblack");
+          }
+        }
+      }
+    }
   }
+
   &__see-all-btn {
-    border: 2px solid map-get(var.$colors, "secondaryVeryDarkGray");
-    background-color: map-get(var.$colors, "primaryWhite");
+    border: 2px solid map-get(col.$colors, "secondaryVeryDarkGray");
+    background-color: map-get(col.$colors, "primaryWhite");
     text-transform: uppercase;
 
-    font-size: var.$font_size;
+    font-size: col.$font_size;
     padding: 0.5rem 2rem;
     letter-spacing: 4px;
     margin-inline: auto;
+    transition: background-color 350ms ease-in-out, color 350ms ease-in-out;
+
+    &:hover {
+      background-color: map-get(col.$colors, "primaryblack");
+      color: map-get(col.$colors, "primaryWhite");
+    }
+
+    @media (min-width: 992px) {
+      margin-inline: 0;
+    }
   }
 }
 
 //Footer
 .footer {
-  background-color: map-get(var.$colors, "primaryblack");
+  background-color: map-get(col.$colors, "primaryblack");
 
   &__container {
+    @include col.flex-layout(column, map-get(col.$spacing, "16px"));
     padding: 2rem 0;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     text-align: center;
-    gap: map-get(var.$spacing, "16px");
 
     &__nav {
-      display: flex;
-      flex-direction: column;
-      gap: map-get(var.$spacing, "16px");
+      @include col.flex-layout(column, map-get(col.$spacing, "16px"));
     }
 
-
     &__socials {
-      display: flex;
-      flex-direction: row;
+      @include col.flex-layout(row, map-get(col.$spacing, "16px"));
       justify-content: center;
-      gap: map-get(var.$spacing, "16px");
+    }
+
+    &__section {
+      @include col.flex-layout(column, map-get(col.$spacing, "16px"));
+    }
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      justify-content: space-between;
+
+      &__socials {
+        justify-content: end;
+      }
+
+      &__section {
+        text-align: start;
+        gap: map-get(col.$spacing, "8px");
+      }
     }
   }
 }

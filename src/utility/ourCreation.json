@@ -3,50 +3,74 @@
     {
       "title1": "DEEP",
       "title2": "EARTH",
-      "src": "src/assets/images/mobile/image-deep-earth.jpg",
-      "alt": "Earth seen from space"
+      "alt": "Earth seen from space",
+      "src": [
+        "src/assets/images/desktop/image-deep-earth.jpg",
+        "src/assets/images/mobile/image-deep-earth.jpg"
+      ]
     },
     {
       "title1": "NIGHT",
       "title2": "ARCADE",
-      "src": "src/assets/images/mobile/image-night-arcade.jpg",
-      "alt": "Arcade machines in a row  "
+      "alt": "Arcade machines in a row",
+      "src": [
+        "src/assets/images/desktop/image-night-arcade.jpg",
+        "src/assets/images/mobile/image-night-arcade.jpg"
+      ]
     },
     {
       "title1": "SOCCER",
       "title2": "TEAM VR",
-      "src": "src/assets/images/mobile/image-soccer-team.jpg",
-      "alt": "People playing football"
+      "alt": "People playing football",
+      "src": [
+        "src/assets/images/desktop/image-soccer-team.jpg",
+        "src/assets/images/mobile/image-soccer-team.jpg"
+      ]
     },
     {
       "title1": "THE",
       "title2": "GRID",
-      "src": "src/assets/images/mobile/image-grid.jpg",
-      "alt": "A cars wheels"
+      "alt": "A cars wheels",
+      "src": [
+        "src/assets/images/desktop/image-grid.jpg",
+        "src/assets/images/mobile/image-grid.jpg"
+      ]
     },
     {
       "title1": "FROM UP",
       "title2": "ABOVE VR",
-      "src": "src/assets/images/mobile/image-from-above.jpg",
-      "alt": "Road seen from above"
+      "alt": "Road seen from above",
+      "src": [
+        "src/assets/images/desktop/image-from-above.jpg",
+        "src/assets/images/mobile/image-from-above.jpg"
+      ]
     },
     {
       "title1": "POCKET",
       "title2": "BOREALIS",
-      "src": "src/assets/images/mobile/image-pocket-borealis.jpg",
-      "alt": "Nordic light in greenland"
+      "alt": "Nordic light in greenland",
+      "src": [
+        "src/assets/images/desktop/image-pocket-borealis.jpg",
+        "src/assets/images/mobile/image-pocket-borealis.jpg"
+      ]
     },
     {
       "title1": "THE",
       "title2": "CURIOSITY",
-      "src": "src/assets/images/mobile/image-curiosity.jpg",
-      "alt": "Space robot on mars"
+      "alt": "Space robot on mars",
+      "src": [
+        "src/assets/images/desktop/image-curiosity.jpg",
+        "src/assets/images/mobile/image-curiosity.jpg"
+      ]
     },
     {
       "title1": "MAKE IT",
       "title2": "FISHEYE",
-      "src": "src/assets/images/mobile/image-fisheye.jpg",
-      "alt": "Sky shown with fish eye"
+      "alt": "Sky shown with fish eye",
+      "src": [
+        "src/assets/images/desktop/image-fisheye.jpg",
+        "src/assets/images/mobile/image-fisheye.jpg"
+      ]
     }
   ]
 }

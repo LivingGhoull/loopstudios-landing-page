@@ -1,0 +1,20 @@
+@use "./variable" as var;
+
+@mixin flex-layout($direction: row, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+};
+
+@mixin transition($property) {
+  transition: $property 350ms ease-in-out;
+};
+
+
+@mixin font-styling($family: map-get(var.$font_family, "alta"), $weight: map-get(var.$font_weight, 300), $size: 1rem, $transform: none, $height: 1.2) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  text-transform: $transform;
+  line-height: $height;
+}
